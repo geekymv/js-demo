@@ -1,0 +1,36 @@
+<html>
+	<head>
+		 <meta charset="utf-8">
+	</head>
+	<body>
+
+		<script type="text/javascript">
+			function Student(props) {
+				this.name = props.name || 'anybody',
+				this.age = props.age || 0
+			}
+
+			Student.prototype.hello = function() {
+				console.log('hello ' + this.name + ', your age is ' + this.age);
+			}
+
+			// 创建对象的函数
+			function createStudent(props) {
+				return new Student(props || {});
+			}
+
+			var xiaoming = createStudent({
+				'name': 'xiaoming',
+				'age': 21
+			});
+			xiaoming.hello();
+
+			
+			var anybody = createStudent();
+			anybody.hello();
+
+
+		</script>
+
+	</body>
+</html>
