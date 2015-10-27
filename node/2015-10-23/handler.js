@@ -1,10 +1,13 @@
 var exec = require('child_process').exec;
+var db = require('./db');
 
 function publish(response) {
-	
+	/*
 	response.writeHead(200, {'Content-type':'application/json'});
 	response.write('{"name": "zhangsan", "age": 22}');
 	response.end();
+	*/
+
 
 
 	/*
@@ -15,14 +18,17 @@ function publish(response) {
 	}
 
 	var content = 'empty';
+	*/
 
 	// 耗时操作
-	exec('', function(error, stdout, stderr) {
+	exec(db.test(), function(error, stdout, stderr) {
 		response.writeHead(200, {'Content-type':'text/plain'});
-		response.write(stdout);
+		console.log(stdout);
+		response.write('hello world');
 		response.end();
 	});
 
+	/*
 	sleep(10 * 1000);
 
  	return 'publish...';
